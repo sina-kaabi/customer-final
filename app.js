@@ -3,6 +3,9 @@ const mongoose = require('mongoose')
 //const url = 'mongodb://localhost/AlienDBex'
 const app = express()
 
+
+
+
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/EmployeesDB";
 
 mongoose
@@ -17,6 +20,10 @@ mongoose
   });
 
  app.use(express.json()) 
+
+ // 👇 Start handling routes here
+//const index = require("./routes/index.routes");
+//app.use("/", index);
 
 const employeeRouter = require('./routes/employees')
 app.use('/employees', employeeRouter)

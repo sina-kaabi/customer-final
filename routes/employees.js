@@ -15,6 +15,8 @@ router.get('/', async(req,res) => {
 }
 })
 
+
+////Working
 router.get('/:id', async(req,res) => {
     try{
         const employee = await Employee.findById(req.params.id)
@@ -55,7 +57,7 @@ res.json(a1)
 }
 })
 
-///Delete
+///Delete ///WORKING!!!
 router.delete('/:id', async(req,res)=> {
     try{
     const employee = await Employee.findById(req.params.id)
