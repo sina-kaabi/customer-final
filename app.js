@@ -6,6 +6,8 @@ const app = express()
 
 
 
+
+
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/EmployeesDB";
 
 mongoose
@@ -19,6 +21,10 @@ mongoose
     console.error("Error connecting to mongo: ", err);
   });
 
+
+
+
+
  app.use(express.json()) 
 
  // 👇 Start handling routes here
@@ -28,6 +34,6 @@ mongoose
 const employeeRouter = require('./routes/employees')
 app.use('/employees', employeeRouter)
 
-  app.listen(3000, function() {
-      console.log('Server started')
-  })
+  //app.listen(3000, function() {
+    //  console.log('Server started')
+  //})

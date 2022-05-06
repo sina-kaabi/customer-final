@@ -3,17 +3,28 @@ const router = express.Router()
 const Employee = require('../models/employees')
 
 
-///NOT WORKING??
+///WORKING
 
-router.get('/', async(req,res) => {
-    try{
-        const employees = await Employee.find()
-        res.json(employees)
-   //res.send('Get Request')
-} catch(err){
-    res.send('Error ' + err)
-}
-})
+// router.get('/', async(req,res) => {
+//     try{
+//         const employees = await Employee.find()
+//         // res.json(employees)
+//         res.render('employees/employee-list', {employees: employees})
+//     } catch(err){
+//        res.send('Error ' + err)
+//     }
+// })
+
+router.get("/", (req, res, next) => {
+    Employee.find()
+        .then((employees) => {
+            res.render('employees/employee-list', {employees: employees});
+        })
+        .catch(err => {
+            console.log("error getting employees from DB", err)
+            next(err);
+        });
+});
 
 
 ////Working
