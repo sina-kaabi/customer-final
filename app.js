@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 //const url = 'mongodb://localhost/AlienDBex'
 const app = express()
 
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/AlienDBex";
+const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/EmployeesDB";
 
 mongoose
   .connect(MONGO_URI)
@@ -16,4 +16,9 @@ mongoose
     console.error("Error connecting to mongo: ", err);
   });
 
+const employeeRouter = require('./routes/employees')
+app.use('/employees', employeeRouter)
 
+  app.listen(3000, function(){
+      console.log('Server started')
+  })
