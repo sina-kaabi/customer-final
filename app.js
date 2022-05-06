@@ -16,9 +16,11 @@ mongoose
     console.error("Error connecting to mongo: ", err);
   });
 
+ app.use(express.json()) 
+
 const employeeRouter = require('./routes/employees')
 app.use('/employees', employeeRouter)
 
-  app.listen(3000, function(){
+  app.listen(3000, function() {
       console.log('Server started')
   })
