@@ -32,8 +32,8 @@ mongoose
 //app.use("/", index);
 
 const employeeRouter = require('./routes/employees')
-app.use('/employees', employeeRouter)
+app.use('/api/v1/employees', employeeRouter)
 
-  //app.listen(3000, function() {
-    //  console.log('Server started')
-  //})
+app.listen(3000, function() {
+     console.log('Server started')
+})
