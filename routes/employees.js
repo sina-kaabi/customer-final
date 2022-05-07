@@ -12,20 +12,7 @@ router.get('/', async(req,res) => {
     } catch(err){
        res.send('Error ' + err)
     }
- }) 
-
-
-// router.get("/", (req, res, next) => {
-//     Employee.find()
-//         .then((employees) => {
-//             console.log(employees);
-//             res.render('employees/employee-list', {employees: employees});
-//         })
-//         .catch(err => {
-//             console.log("error getting employees from DB", err)
-//             next(err);
-//         });
-// });
+ })
 
 
 ////Working
