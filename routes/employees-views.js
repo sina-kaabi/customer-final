@@ -27,6 +27,10 @@ router.get("/", (req, res, next) => {
       });
 });
 
+router.get("/create", (req, res, next) => {
+    res.render('employees/employee-create')
+});
+
 router.get("/:id", (req, res, next) => {   
     
     http.get('http://localhost:3000/api/v1/employees/' + req.params.id, response => {
@@ -50,5 +54,8 @@ router.get("/:id", (req, res, next) => {
         next(err)
       });
 });
+
+
+
 
 module.exports = router

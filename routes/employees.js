@@ -35,8 +35,8 @@ router.post('/', async(req,res) => {
     })
 
     try {
-        const a1 = await employee.save()
-        res.json(a1).status(201);
+        const createdEmployee = await employee.save()
+        res.json(createdEmployee).status(201);
     } catch(err) {
         res.send('Error')
     }
@@ -49,8 +49,8 @@ router.put('/:id', async(req,res)=> {
         employee.name = req.body.name;
         employee.industry = req.body.industry;
         employee.employed = req.body.employed;
-        const a1 = await employee.save()
-        res.json(a1)
+        const updateEmployee = await employee.save()
+        res.json(updateEmployee)
     }catch(err){
         res.send('Error')
     }
@@ -60,8 +60,8 @@ router.put('/:id', async(req,res)=> {
 router.delete('/:id', async(req,res)=> {
     try{
        const employee = await Employee.findById(req.params.id)    
-       const a1 = await employee.remove()
-       res.json(a1).status(204)
+       const deletedEmployee = await employee.remove()
+       res.json(deletedEmployee)
     } catch(err){
         res.send('Error')
     }
